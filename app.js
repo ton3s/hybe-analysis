@@ -8,6 +8,7 @@ const parsedData = JSON.parse(data)
 parsedData.forEach((item, index) => {
 	fs.writeFileSync(
 		`./trials/trial-${index + 1}.txt`,
-		JSON.stringify(item, null, 2)
+		JSON.stringify(item, null, 2),
+		{ flag: 'w' } // 'w' - Open file for writing. The file is created if it does not exist, or truncated if it exists.
 	)
 })
