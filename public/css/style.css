@@ -1,6 +1,11 @@
+.main-title,
+.button-glow {
+	font-family: 'Varela Round', sans-serif; /* Apply Varela Round font */
+}
+
 /* Basic body styling */
 body {
-	font-family: 'Arial', sans-serif;
+	font-family: 'Varela Round', sans-serif;
 	background-color: #121212; /* Dark background */
 	color: #e0e0e0; /* Light text */
 	margin: 20px;
@@ -80,4 +85,151 @@ select {
 .container {
 	position: relative;
 	min-height: 100vh; /* Ensure it takes at least the full height of the viewport */
+}
+
+.button-glow {
+	background-color: #ff4d4d; /* Bright red background */
+	border: none; /* No border for a cleaner look */
+	color: white; /* White text */
+	padding: 12px 24px; /* Spacing inside the button */
+	font-size: 16px; /* Suitable text size */
+	border-radius: 5px; /* Rounded corners */
+	cursor: pointer; /* Pointer cursor on hover */
+	outline: none; /* Remove outline */
+	position: relative; /* Position relative for pseudo-elements */
+	transition: all 0.3s ease; /* Smooth transition for effects */
+	text-shadow: 0 0 10px rgba(255, 77, 77, 0.75); /* Glowing text effect */
+	box-shadow: 0 0 20px rgba(255, 77, 77, 0.5); /* Outer glow effect */
+}
+
+.button-glow:hover {
+	background-color: #e60000; /* Darker red when hovered */
+	box-shadow: 0 0 25px rgba(255, 77, 77, 0.75); /* Stronger glow on hover */
+}
+
+.button-glow:active {
+	background-color: #cc0000; /* Even darker red on click */
+	box-shadow: 0 0 15px rgba(255, 77, 77, 0.75); /* Slightly reduced glow on click */
+}
+
+#notification-box {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 60%; /* Adjust width as needed */
+	max-height: 70%; /* Limit the height */
+	background-color: rgba(30, 30, 30, 0.95); /* Match the theme */
+	color: #fff;
+	font-family: 'Varela Round', sans-serif; /* Same font as title and button */
+	box-shadow: 0 0 15px rgba(255, 69, 0, 0.8); /* Glowing effect */
+	border-radius: 10px;
+	padding: 20px;
+	overflow: hidden;
+	z-index: 1000; /* Ensure it stays on top */
+	display: none; /* Hidden by default */
+}
+
+.notification-content {
+	display: flex;
+	flex-direction: column;
+	max-height: 100%;
+	overflow: hidden; /* Prevent content from overflowing */
+}
+
+.notification-content p {
+	margin: 0;
+	padding: 10px;
+	font-size: 16px;
+	line-height: 1.5;
+	overflow-y: auto; /* Scrollable when content exceeds the box height */
+	scrollbar-width: thin; /* For modern browsers */
+	scrollbar-color: rgba(255, 69, 0, 0.8) rgba(30, 30, 30, 0.95);
+}
+
+.notification-content p::-webkit-scrollbar {
+	width: 8px;
+}
+
+.notification-content p::-webkit-scrollbar-thumb {
+	background: rgba(255, 69, 0, 0.8);
+	border-radius: 10px;
+}
+
+.notification-content p::-webkit-scrollbar-track {
+	background: rgba(30, 30, 30, 0.95);
+}
+
+.close-btn {
+	align-self: flex-end;
+	font-size: 20px;
+	color: rgba(255, 69, 0, 0.8); /* Match the theme */
+	cursor: pointer;
+	margin-bottom: 10px;
+}
+
+.close-btn:hover {
+	color: rgba(255, 100, 50, 1);
+}
+
+#progress-bar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 5px;
+	background-color: rgba(30, 30, 30, 0.9); /* Match the theme */
+	z-index: 1001; /* Ensure it stays above other elements */
+}
+
+#progress-bar .progress {
+	width: 0;
+	height: 100%;
+	background-color: #ff4500; /* Match the glowing red theme of the title and button */
+	animation: progressAnimation 2s linear infinite;
+}
+
+@keyframes progressAnimation {
+	0% {
+		width: 0%;
+	}
+	50% {
+		width: 50%;
+	}
+	100% {
+		width: 100%;
+	}
+}
+
+/* Spinner styles */
+#spinner {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 1000; /* Ensure it appears above all other content */
+}
+
+.loader {
+	border: 8px solid rgba(255, 255, 255, 0.3); /* Light border */
+	border-top: 8px solid #ff4500; /* Glowing red border */
+	border-radius: 50%;
+	width: 80px;
+	height: 80px;
+	animation: spin 1s linear infinite;
+}
+
+/* Keyframes for spinner rotation */
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
 }
