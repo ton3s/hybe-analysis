@@ -1,17 +1,27 @@
+<!DOCTYPE html>
 <html>
-	<head>
-		<title>{{data.title}}</title>
-		<link rel='stylesheet' type='text/css' href='/css/style.css' />
-	</head>
-	<body>
-		<h1>Data ID: {{data.id}}</h1>
-		<h2>Created At: {{data.created_at}}</h2>
-		<h2>Updated At: {{data.updated_at}}</h2>
-		{{#each data.content}}
-			<div>
-				<h3>Role: {{this.role}}</h3>
-				<pre>{{this.content}}</pre>
-			</div>
-		{{/each}}
-	</body>
+<head>
+    <title>Trial {{trialNumber}}</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+<body>
+    <h1 style="text-align: center;">Trial {{trialNumber}}</h1>
+    <form action="/" method="GET">
+		<select name="trial" onchange="this.form.submit()">
+			{{#each trialNumbers}}
+			<option value="{{this}}" {{#if (eq ../trialNumber this)}}selected{{/if}}>Trial {{this}}</option>
+			{{/each}}
+		</select>
+	</form>
+    <div>
+        <h2>Created At: {{data.created_at}}</h2>
+        <h2>Updated At: {{data.updated_at}}</h2>
+        {{#each data.content}}
+            <div>
+                <h3>Role: {{this.role}}</h3>
+                <pre>{{this.content}}</pre>
+            </div>
+        {{/each}}
+    </div>
+</body>
 </html>

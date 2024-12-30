@@ -32,3 +32,15 @@ pre {
 	word-wrap: break-word; /* Ensures long words do not cause horizontal scrolling */
 	overflow: auto; /* Adds scrollbars if content overflows */
 }
+/* Additional styles for form and dropdown */
+form {
+	text-align: center;
+	margin: 20px;
+}
+
+select {
+	padding: 5px 10px;
+	border-radius: 5px;
+	background-color: #1e1e1e;
+	color: #a5d6a7;
+}

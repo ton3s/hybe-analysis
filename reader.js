@@ -1,28 +1,49 @@
 const express = require('express')
 const { engine } = require('express-handlebars')
-const fs = require('fs').promises // Use promises version of fs for async/await
+const fs = require('fs').promises
+const path = require('path')
 
 const app = express()
 const port = 3000
 
-// Set up Handlebars middleware
-app.engine('handlebars', engine())
+app.engine(
+	'handlebars',
+	engine({
+		helpers: {
+			eq: (v1, v2) => v1 === v2,
+		},
+	})
+)
 app.set('view engine', 'handlebars')
 app.set('views', './views')
 
-// Serve static files
 app.use(express.static('public'))
+app.use(express.urlencoded({ extended: true }))
 
-// Route to display the JSON data
 app.get('/', async (req, res) => {
+	const trialNumber = req.query.trial || '1' // Ensure it's a string
 	try {
-		// Read the JSON file from the filesystem
-		const data = await fs.readFile('./trials/trial-1.json', 'utf8')
-		const jsonData = JSON.parse(data) // Parse the JSON data
+		const files = await fs.readdir('./trials')
+		const trialFiles = files.filter(
+			(file) => file.startsWith('trial-') && file.endsWith('.json')
+		)
+		const trialNumbers = trialFiles
+			.map((file) => file.match(/trial-(\d+)\.json/))
+			.filter((match) => match)
+			.map((match) => match[1]) // Keep as string
+			.sort((a, b) => parseInt(a, 10) - parseInt(b, 10))
 
-		res.render('home', { data: jsonData }) // Render the data to the handlebars template
+		const data = await fs.readFile(`./trials/trial-${trialNumber}.json`, 'utf8')
+		const jsonData = JSON.parse(data)
+
+		res.render('home', {
+			data: jsonData,
+			trialNumber,
+			trialNumbers,
+		})
 	} catch (error) {
-		res.status(500).send('Error reading data from file: ' + error)
+		console.log(error)
+		res.status(500).send('Error reading data from file or directory: ' + error)
 	}
 })
 
