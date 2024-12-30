@@ -303,8 +303,9 @@ select:focus {
 #search-bar {
 	width: 80%;
 	padding: 10px;
-	font-size: 16px;
-	border: 2px solid #ff6347; /* Mars-like red */
+	font-size: 18px; /* Match font size with buttons and title */
+	font-family: 'Varela Round', sans-serif; /* Apply consistent font */
+	border: 2px solid #ff6347; /* Mars-like red border */
 	border-radius: 5px;
 	background-color: #1e1e1e;
 	color: #fff;
@@ -313,5 +314,13 @@ select:focus {
 }
 
 #search-bar:focus {
-	border-color: #ff4500; /* Bright Mars red */
+	border-color: #ff4500; /* Bright Mars red on focus */
+}
+
+/* Placeholder Styling */
+#search-bar::placeholder {
+	font-family: 'Varela Round', sans-serif; /* Match font */
+	font-size: 18px; /* Match text size */
+	color: #bbb; /* Light gray color */
+	text-align: left;
 }
