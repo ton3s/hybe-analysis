@@ -293,3 +293,25 @@ select:focus {
 	transform: scale(1.05); /* Slight enlargement */
 	transition: all 0.2s ease-in-out;
 }
+
+/* Search Bar Styling */
+.search-section {
+	margin: 20px 0;
+	text-align: center;
+}
+
+#search-bar {
+	width: 80%;
+	padding: 10px;
+	font-size: 16px;
+	border: 2px solid #ff6347; /* Mars-like red */
+	border-radius: 5px;
+	background-color: #1e1e1e;
+	color: #fff;
+	outline: none;
+	transition: border-color 0.3s ease-in-out;
+}
+
+#search-bar:focus {
+	border-color: #ff4500; /* Bright Mars red */
+}

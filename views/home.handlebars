@@ -16,6 +16,13 @@
 		</select>
 	</form>
     <div class="container">
+		<div class="search-section">
+        <input 
+			type="text" 
+			id="search-bar" 
+			placeholder="Search trials..." 
+			oninput="filterTrials()" />
+		</div>
         <div class="timestamp">
 			<p>Created At: {{data.created_at}}</p>
 			<p>Updated At: {{data.updated_at}}</p>
@@ -87,6 +94,20 @@
 
 			function closeNotification() {
 				document.getElementById('notification-box').style.display = 'none';
+			}
+
+			function filterTrials() {
+				const searchTerm = document.getElementById('search-bar').value.toLowerCase();
+				const trials = document.querySelectorAll('.content-section');
+
+				trials.forEach(trial => {
+					const content = trial.querySelector('pre').textContent.toLowerCase();
+					if (content.includes(searchTerm)) {
+						trial.style.display = 'block'; // Show matching trials
+					} else {
+						trial.style.display = 'none'; // Hide non-matching trials
+					}
+				});
 			}
 		</script>
     </div>
