@@ -29,6 +29,7 @@ div {
 
 /* Styling for preformatted text blocks */
 pre {
+	font-size: 16px; /* Increase font size */
 	background-color: #2c2c2c; /* Even lighter for contrast */
 	color: #a5d6a7; /* A soft green for text */
 	padding: 10px;
