@@ -5,7 +5,7 @@
 
 /* Basic body styling */
 body {
-	font-family: 'Arial', sans-serif;
+	font-family: 'Varela Round', sans-serif;
 	background-color: #121212; /* Dark background */
 	color: #e0e0e0; /* Light text */
 	margin: 20px;
@@ -110,4 +110,64 @@ select {
 .button-glow:active {
 	background-color: #cc0000; /* Even darker red on click */
 	box-shadow: 0 0 15px rgba(255, 77, 77, 0.75); /* Slightly reduced glow on click */
+}
+
+#notification-box {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 60%; /* Adjust width as needed */
+	max-height: 70%; /* Limit the height */
+	background-color: rgba(30, 30, 30, 0.95); /* Match the theme */
+	color: #fff;
+	font-family: 'Varela Round', sans-serif; /* Same font as title and button */
+	box-shadow: 0 0 15px rgba(255, 69, 0, 0.8); /* Glowing effect */
+	border-radius: 10px;
+	padding: 20px;
+	overflow: hidden;
+	z-index: 1000; /* Ensure it stays on top */
+	display: none; /* Hidden by default */
+}
+
+.notification-content {
+	display: flex;
+	flex-direction: column;
+	max-height: 100%;
+	overflow: hidden; /* Prevent content from overflowing */
+}
+
+.notification-content p {
+	margin: 0;
+	padding: 10px;
+	font-size: 16px;
+	line-height: 1.5;
+	overflow-y: auto; /* Scrollable when content exceeds the box height */
+	scrollbar-width: thin; /* For modern browsers */
+	scrollbar-color: rgba(255, 69, 0, 0.8) rgba(30, 30, 30, 0.95);
+}
+
+.notification-content p::-webkit-scrollbar {
+	width: 8px;
+}
+
+.notification-content p::-webkit-scrollbar-thumb {
+	background: rgba(255, 69, 0, 0.8);
+	border-radius: 10px;
+}
+
+.notification-content p::-webkit-scrollbar-track {
+	background: rgba(30, 30, 30, 0.95);
+}
+
+.close-btn {
+	align-self: flex-end;
+	font-size: 20px;
+	color: rgba(255, 69, 0, 0.8); /* Match the theme */
+	cursor: pointer;
+	margin-bottom: 10px;
+}
+
+.close-btn:hover {
+	color: rgba(255, 100, 50, 1);
 }
