@@ -44,10 +44,25 @@ form {
 }
 
 select {
-	padding: 5px 10px;
-	border-radius: 5px;
-	background-color: #1e1e1e;
-	color: #a5d6a7;
+	font-family: 'Varela Round', sans-serif;
+	font-size: 18px; /* Increase font size */
+	padding: 10px 15px; /* Add padding for better click area */
+	border: 2px solid #ff4500; /* Add a red border */
+	border-radius: 8px; /* Round the edges */
+	background-color: #222; /* Dark background to match theme */
+	color: white; /* White text */
+	cursor: pointer;
+	outline: none; /* Remove default focus outline */
+	transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+select:hover {
+	box-shadow: 0 0 10px #ff4500, 0 0 20px #ff6347; /* Glow effect on hover */
+	transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+select:focus {
+	box-shadow: 0 0 12px #ff4500, 0 0 25px #ff6347; /* Glow effect when focused */
 }
 
 /* Main Title Styling */
@@ -93,18 +108,23 @@ select {
 	padding: 10px 20px; /* Adjust padding for a better size */
 	font-size: 16px; /* Adjust font size */
 	font-family: 'Varela Round', sans-serif;
-	border: none;
-	border-radius: 25px;
-	color: white;
-	background-color: #ff4500;
+	font-size: 18px; /* Increased font size */
+	font-weight: bold;
+	padding: 12px 24px; /* Adjust padding for larger text */
+	color: #fff;
+	background: none;
+	border: 2px solid #ff6347; /* Matching the title's theme */
+	border-radius: 5px;
 	cursor: pointer;
 	transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Smooth transitions */
 	box-shadow: 0 0 15px rgba(255, 77, 77, 0.75);
 }
 
 .button-glow:hover {
-	transform: scale(1.1); /* Slightly enlarge on hover */
-	box-shadow: 0 0 15px #ff4500, 0 0 30px #ff6347; /* Glow effect on hover */
+	background: #ff6347; /* Bright red glow effect */
+	color: #fff;
+	box-shadow: 0 0 20px #ff6347; /* Glow effect on hover */
+	transform: scale(1.1); /* Slight increase in size */
 }
 
 .button-glow:active {
@@ -232,4 +252,43 @@ select {
 	100% {
 		transform: rotate(360deg);
 	}
+}
+
+/* General subtitle styling */
+.role-title {
+	font-family: 'Varela Round', sans-serif;
+	font-size: 20px; /* Larger font size */
+	font-weight: bold;
+	margin-bottom: 10px; /* Add space below subtitle */
+	display: inline-block;
+	padding: 5px 10px; /* Padding for background effect */
+	border-radius: 5px; /* Slightly rounded edges */
+	text-transform: uppercase; /* Make text uppercase */
+}
+
+/* Style for 'User' role */
+.user-role {
+	color: #ff6347; /* Bright orange text */
+	background-color: rgba(
+		255,
+		99,
+		71,
+		0.1
+	); /* Light background matching the theme */
+	border: 2px solid #ff6347; /* Border matching text color */
+	box-shadow: 0 0 5px rgba(255, 99, 71, 0.5); /* Subtle glowing effect */
+}
+
+/* Style for 'Assistant' role */
+.assistant-role {
+	color: #1e90ff; /* Bright blue text */
+	background-color: rgba(30, 144, 255, 0.1); /* Light blue background */
+	border: 2px solid #1e90ff; /* Border matching text color */
+	box-shadow: 0 0 5px rgba(30, 144, 255, 0.5); /* Subtle glowing effect */
+}
+
+/* Hover effect for both roles */
+.role-title:hover {
+	transform: scale(1.05); /* Slight enlargement */
+	transition: all 0.2s ease-in-out;
 }
