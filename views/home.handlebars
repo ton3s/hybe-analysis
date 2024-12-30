@@ -23,7 +23,8 @@
         {{#each data.content}}
             <div class="content-section">
                 <h3 class="role-title {{#if (eq this.role 'user')}}user-role{{else}}assistant-role{{/if}}">
-					Role: {{this.role}}
+					{{#if (eq this.role "user")}}Dr. Volkov{{/if}}
+					{{#if (eq this.role "assistant")}}Dr. Hans{{/if}}
 				</h3>
                 <pre>{{this.content}}</pre>
 				<button class="button-glow" onclick="explainInLaymansTerms({{@index}})">Explain This</button>
