@@ -44,3 +44,40 @@ select {
 	background-color: #1e1e1e;
 	color: #a5d6a7;
 }
+
+/* Main Title Styling */
+.main-title {
+	font-size: 48px; /* Larger font size */
+	color: #e15a24; /* Mars-like red color */
+	text-align: center;
+	animation: pulseAnimation 2s infinite;
+}
+
+/* Keyframes for pulse animation */
+@keyframes pulseAnimation {
+	0% {
+		text-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+	}
+	50% {
+		text-shadow: 0 0 20px rgba(255, 165, 0, 0.5);
+	}
+	100% {
+		text-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+	}
+}
+
+/* Styling for the timestamp information */
+.timestamp {
+	font-size: 14px; /* Smaller font size */
+	font-style: italic; /* Italicize the font */
+	position: absolute;
+	bottom: 10px; /* Position at the bottom of the page */
+	width: 100%; /* Ensure it spans the width of the page */
+	text-align: center; /* Center-align the text */
+	color: #fff; /* Optional: Change color if needed */
+}
+
+.container {
+	position: relative;
+	min-height: 100vh; /* Ensure it takes at least the full height of the viewport */
+}

@@ -5,7 +5,7 @@
     <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 <body>
-    <h1 style="text-align: center;">Trial {{trialNumber}}</h1>
+    <h1 class="main-title">Trial {{trialNumber}}</h1>
     <form action="/" method="GET">
 		<select name="trial" onchange="this.form.submit()">
 			{{#each trialNumbers}}
@@ -13,9 +13,11 @@
 			{{/each}}
 		</select>
 	</form>
-    <div>
-        <h2>Created At: {{data.created_at}}</h2>
-        <h2>Updated At: {{data.updated_at}}</h2>
+    <div class="container">
+        <div class="timestamp">
+			<p>Created At: {{data.created_at}}</p>
+			<p>Updated At: {{data.updated_at}}</p>
+		</div>
         {{#each data.content}}
             <div>
                 <h3>Role: {{this.role}}</h3>
