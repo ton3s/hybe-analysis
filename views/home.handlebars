@@ -27,6 +27,10 @@
 				<button class="button-glow" onclick="explainInLaymansTerms({{@index}})">Explain This</button>
             </div>
         {{/each}}
+		<!-- Spinning Wheel Loader -->
+		<div id="spinner" style="display: none;">
+			<div class="loader"></div>
+		</div>
 		<!-- Notification Box (initially hidden) -->
 		<div id="notification-box" style="display: none;">
 			<div class="notification-content">
@@ -38,6 +42,10 @@
 			function explainInLaymansTerms(index) {
 				// Targeting 'pre' instead of 'p' inside '.content-section'
 				const content = document.querySelectorAll('.content-section pre')[index].textContent;
+		
+				// Show spinner
+    			document.getElementById('spinner').style.display = 'flex';
+			
 				console.log('Content:', content);
 				fetch('/explain', {
 					method: 'POST',
@@ -48,20 +56,34 @@
 				})
 				.then(response => response.json())
 				.then(data => {
+					// Hide spinner
+            		document.getElementById('spinner').style.display = 'none';
+
 					console.log('Explanation:', data.explanation);
 					showNotification(data.explanation)
 				})
-				.catch(error => console.error('Error explaining content:', error));
+				.catch(error => {
+					console.error('Error explaining content:', error);
+
+					// Hide spinner
+					document.getElementById('spinner').style.display = 'none';
+
+					// Show error in notification box
+					showNotification('An error occurred while fetching the explanation. Please try again.');
+				});
 			}
 
-			function showNotification(markdownMessage) {
-				const htmlContent = marked.parse(markdownMessage); // Convert Markdown to HTML
-				document.getElementById('chat-response').innerHTML = htmlContent; // Use innerHTML to render HTML content
-				document.getElementById('notification-box').style.display = 'flex';
+			function showNotification(message) {
+				// Render the message as Markdown if necessary
+				const notificationBox = document.getElementById('notification-box');
+				const chatResponse = document.getElementById('chat-response');
+
+				chatResponse.innerHTML = marked.parse(message); // Use a Markdown parser for better formatting
+				notificationBox.style.display = 'flex';
 			}
 
 			function closeNotification() {
-				document.getElementById('notification-box').style.display = 'none'
+				document.getElementById('notification-box').style.display = 'none';
 			}
 		</script>
     </div>

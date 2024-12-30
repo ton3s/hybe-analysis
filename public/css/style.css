@@ -171,3 +171,65 @@ select {
 .close-btn:hover {
 	color: rgba(255, 100, 50, 1);
 }
+
+#progress-bar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 5px;
+	background-color: rgba(30, 30, 30, 0.9); /* Match the theme */
+	z-index: 1001; /* Ensure it stays above other elements */
+}
+
+#progress-bar .progress {
+	width: 0;
+	height: 100%;
+	background-color: #ff4500; /* Match the glowing red theme of the title and button */
+	animation: progressAnimation 2s linear infinite;
+}
+
+@keyframes progressAnimation {
+	0% {
+		width: 0%;
+	}
+	50% {
+		width: 50%;
+	}
+	100% {
+		width: 100%;
+	}
+}
+
+/* Spinner styles */
+#spinner {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 1000; /* Ensure it appears above all other content */
+}
+
+.loader {
+	border: 8px solid rgba(255, 255, 255, 0.3); /* Light border */
+	border-top: 8px solid #ff4500; /* Glowing red border */
+	border-radius: 50%;
+	width: 80px;
+	height: 80px;
+	animation: spin 1s linear infinite;
+}
+
+/* Keyframes for spinner rotation */
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
