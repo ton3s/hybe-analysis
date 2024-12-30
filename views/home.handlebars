@@ -19,11 +19,29 @@
 			<p>Updated At: {{data.updated_at}}</p>
 		</div>
         {{#each data.content}}
-            <div>
+            <div class="content-section">
                 <h3>Role: {{this.role}}</h3>
                 <pre>{{this.content}}</pre>
+				<button onclick="explainInLaymansTerms({{@index}})">Explain This</button>
             </div>
         {{/each}}
+		<script>
+			function explainInLaymansTerms(index) {
+				// Targeting 'pre' instead of 'p' inside '.content-section'
+				const content = document.querySelectorAll('.content-section pre')[index].textContent;
+				console.log('Content:', content);
+				fetch('/explain', {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json',
+					},
+					body: JSON.stringify({ text: content })
+				})
+				.then(response => response.json())
+				.then(data => console.log(data.explanation))
+				.catch(error => console.error('Error explaining content:', error));
+			}
+		</script>
     </div>
 </body>
 </html>
