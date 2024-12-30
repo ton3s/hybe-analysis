@@ -88,23 +88,23 @@ select {
 }
 
 .button-glow {
-	background-color: #ff4d4d; /* Bright red background */
-	border: none; /* No border for a cleaner look */
-	color: white; /* White text */
-	padding: 12px 24px; /* Spacing inside the button */
-	font-size: 16px; /* Suitable text size */
-	border-radius: 5px; /* Rounded corners */
-	cursor: pointer; /* Pointer cursor on hover */
-	outline: none; /* Remove outline */
-	position: relative; /* Position relative for pseudo-elements */
-	transition: all 0.3s ease; /* Smooth transition for effects */
-	text-shadow: 0 0 10px rgba(255, 77, 77, 0.75); /* Glowing text effect */
-	box-shadow: 0 0 20px rgba(255, 77, 77, 0.5); /* Outer glow effect */
+	float: right; /* Move the button to the right */
+	margin-top: 10px; /* Add some spacing above */
+	padding: 10px 20px; /* Adjust padding for a better size */
+	font-size: 16px; /* Adjust font size */
+	font-family: 'Varela Round', sans-serif;
+	border: none;
+	border-radius: 25px;
+	color: white;
+	background-color: #ff4500;
+	cursor: pointer;
+	transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Smooth transitions */
+	box-shadow: 0 0 15px rgba(255, 77, 77, 0.75);
 }
 
 .button-glow:hover {
-	background-color: #e60000; /* Darker red when hovered */
-	box-shadow: 0 0 25px rgba(255, 77, 77, 0.75); /* Stronger glow on hover */
+	transform: scale(1.1); /* Slightly enlarge on hover */
+	box-shadow: 0 0 15px #ff4500, 0 0 30px #ff6347; /* Glow effect on hover */
 }
 
 .button-glow:active {

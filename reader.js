@@ -23,6 +23,7 @@ app.engine(
 		},
 	})
 )
+
 app.set('view engine', 'handlebars')
 app.set('views', './views')
 
