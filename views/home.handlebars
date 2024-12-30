@@ -1,0 +1,17 @@
+<html>
+	<head>
+		<title>{{data.title}}</title>
+		<link rel='stylesheet' type='text/css' href='/css/style.css' />
+	</head>
+	<body>
+		<h1>Data ID: {{data.id}}</h1>
+		<h2>Created At: {{data.created_at}}</h2>
+		<h2>Updated At: {{data.updated_at}}</h2>
+		{{#each data.content}}
+			<div>
+				<h3>Role: {{this.role}}</h3>
+				<pre>{{this.content}}</pre>
+			</div>
+		{{/each}}
+	</body>
+</html>

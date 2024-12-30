@@ -1,0 +1,24 @@
+{
+  "name": "hybe",
+  "version": "1.0.0",
+  "description": "This document explains how to use the generated trial files from the `trials` folder to analyze, summarize, and ask questions using a website like [Sharly.ai](https://sharly.ai).",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ton3s/hybe-analysis.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ton3s/hybe-analysis/issues"
+  },
+  "homepage": "https://github.com/ton3s/hybe-analysis#readme",
+  "dependencies": {
+    "express": "^4.21.2",
+    "express-handlebars": "^8.0.1"
+  }
+}
