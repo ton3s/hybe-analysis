@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HYBE - Trial {{trialNumber}}</title>
+	<link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+	<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+    <h1 class="main-title">HYBE Analysis</h1>
+    <form action="/" method="GET">
+		<select name="trial" onchange="this.form.submit()">
+			{{#each trialNumbers}}
+			<option value="{{this}}" {{#if (eq ../trialNumber this)}}selected{{/if}}>Trial {{this}}</option>
+			{{/each}}
+		</select>
+	</form>
+    <div class="container">
+		<div class="search-section">
+        <input 
+			type="text" 
+			id="search-bar" 
+			placeholder="Search trials..." 
+			oninput="filterTrials()" />
+		</div>
+        <div class="timestamp">
+			<p>Created At: {{data.created_at}}</p>
+			<p>Updated At: {{data.updated_at}}</p>
+		</div>
+        {{#each data.content}}
+            <div class="content-section">
+                <h3 class="role-title {{#if (eq this.role 'user')}}user-role{{else}}assistant-role{{/if}}">
+					{{#if (eq this.role "user")}}User{{/if}}
+					{{#if (eq this.role "assistant")}}Assistant{{/if}}
+				</h3>
+                <pre>{{this.content}}</pre>
+				<button class="button-glow" onclick="explainInLaymansTerms({{@index}})">Explain This</button>
+            </div>
+        {{/each}}
+		<!-- Spinning Wheel Loader -->
+		<div id="spinner" style="display: none;">
+			<div class="loader"></div>
+		</div>
+		<!-- Notification Box (initially hidden) -->
+		<div id="notification-box" style="display: none;">
+			<div class="notification-content">
+				<span class="close-btn" onclick="closeNotification()">&times;</span>
+				<p id="chat-response"></p>
+			</div>
+		</div>
+		<script>
+			function explainInLaymansTerms(index) {
+				// Targeting 'pre' instead of 'p' inside '.content-section'
+				const content = document.querySelectorAll('.content-section pre')[index].textContent;
+		
+				// Show spinner
+    			document.getElementById('spinner').style.display = 'flex';
+			
+				console.log('Content:', content);
+				fetch('/explain', {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json',
+					},
+					body: JSON.stringify({ text: content })
+				})
+				.then(response => response.json())
+				.then(data => {
+					// Hide spinner
+            		document.getElementById('spinner').style.display = 'none';
+
+					console.log('Explanation:', data.explanation);
+					showNotification(data.explanation)
+				})
+				.catch(error => {
+					console.error('Error explaining content:', error);
+
+					// Hide spinner
+					document.getElementById('spinner').style.display = 'none';
+
+					// Show error in notification box
+					showNotification('An error occurred while fetching the explanation. Please try again.');
+				});
+			}
+
+			function showNotification(message) {
+				// Render the message as Markdown if necessary
+				const notificationBox = document.getElementById('notification-box');
+				const chatResponse = document.getElementById('chat-response');
+
+				chatResponse.innerHTML = marked.parse(message); // Use a Markdown parser for better formatting
+				notificationBox.style.display = 'flex';
+			}
+
+			function closeNotification() {
+				document.getElementById('notification-box').style.display = 'none';
+			}
+
+			function filterTrials() {
+				const searchTerm = document.getElementById('search-bar').value.toLowerCase();
+				const trials = document.querySelectorAll('.content-section');
+
+				trials.forEach(trial => {
+					const content = trial.querySelector('pre').textContent.toLowerCase();
+					if (content.includes(searchTerm)) {
+						trial.style.display = 'block'; // Show matching trials
+					} else {
+						trial.style.display = 'none'; // Hide non-matching trials
+					}
+				});
+			}
+		</script>
+    </div>
+</body>
+</html>

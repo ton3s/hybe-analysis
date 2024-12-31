@@ -1,27 +1,27 @@
 {
-  "name": "hybe",
-  "version": "1.0.0",
-  "description": "This document explains how to use the generated trial files from the `trials` folder to analyze, summarize, and ask questions using a website like [Sharly.ai](https://sharly.ai).",
-  "main": "app.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ton3s/hybe-analysis.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ton3s/hybe-analysis/issues"
-  },
-  "homepage": "https://github.com/ton3s/hybe-analysis#readme",
-  "dependencies": {
-    "axios": "^1.7.9",
-    "dotenv": "^16.4.7",
-    "express": "^4.21.2",
-    "express-handlebars": "^8.0.1",
-    "openai": "^4.77.0"
-  }
+	"name": "hybe",
+	"version": "1.0.0",
+	"description": "This document explains how to use the generated trial files from the `trials` folder to analyze, summarize, and ask questions using a website like [Sharly.ai](https://sharly.ai).",
+	"main": "app.js",
+	"scripts": {
+		"build": "cp -r public/. .vercel_build_output/static"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/ton3s/hybe-analysis.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/ton3s/hybe-analysis/issues"
+	},
+	"homepage": "https://github.com/ton3s/hybe-analysis#readme",
+	"dependencies": {
+		"axios": "^1.7.9",
+		"dotenv": "^16.4.7",
+		"express": "^4.21.2",
+		"express-handlebars": "^8.0.1",
+		"openai": "^4.77.0"
+	}
 }

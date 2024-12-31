@@ -25,9 +25,9 @@ app.engine(
 )
 
 app.set('view engine', 'handlebars')
-app.set('views', './views')
+app.set('views', path.join(__dirname, 'public/views')) // Updated views path
 
-app.use(express.static('public'))
+app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.urlencoded({ extended: true }))
 
 // Middleware to parse JSON bodies
@@ -39,7 +39,8 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.get('/', async (req, res) => {
 	const trialNumber = req.query.trial || '1' // Ensure it's a string
 	try {
-		const files = await fs.readdir('./trials')
+		const trialsPath = path.join(__dirname, 'public/trials')
+		const files = await fs.readdir(trialsPath)
 		const trialFiles = files.filter(
 			(file) => file.startsWith('trial-') && file.endsWith('.json')
 		)
@@ -49,7 +50,10 @@ app.get('/', async (req, res) => {
 			.map((match) => match[1]) // Keep as string
 			.sort((a, b) => parseInt(a, 10) - parseInt(b, 10))
 
-		const data = await fs.readFile(`./trials/trial-${trialNumber}.json`, 'utf8')
+		const data = await fs.readFile(
+			path.join(trialsPath, `trial-${trialNumber}.json`),
+			'utf8'
+		)
 		const jsonData = JSON.parse(data)
 
 		res.render('home', {

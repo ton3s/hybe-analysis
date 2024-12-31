@@ -1,0 +1,326 @@
+.main-title,
+.button-glow {
+	font-family: 'Varela Round', sans-serif; /* Apply Varela Round font */
+}
+
+/* Basic body styling */
+body {
+	font-family: 'Varela Round', sans-serif;
+	background-color: #121212; /* Dark background */
+	color: #e0e0e0; /* Light text */
+	margin: 20px;
+}
+
+/* Heading colors */
+h1,
+h2 {
+	color: #bb86fc; /* A light purple color for a bit of contrast */
+}
+
+/* Styling for content blocks */
+div {
+	background-color: #1e1e1e; /* Slightly lighter than the body for visibility */
+	border: 1px solid #333;
+	padding: 15px;
+	margin-bottom: 20px;
+	border-radius: 5px;
+	overflow-x: auto; /* Ensures content within div is scrollable horizontally if needed */
+}
+
+/* Styling for preformatted text blocks */
+pre {
+	font-size: 16px; /* Increase font size */
+	background-color: #2c2c2c; /* Even lighter for contrast */
+	color: #a5d6a7; /* A soft green for text */
+	padding: 10px;
+	border-left: 3px solid #bb86fc; /* Purple border to match headings */
+	white-space: pre-wrap; /* Allows text to wrap within the pre tag */
+	word-wrap: break-word; /* Ensures long words do not cause horizontal scrolling */
+	overflow: auto; /* Adds scrollbars if content overflows */
+}
+/* Additional styles for form and dropdown */
+form {
+	text-align: center;
+	margin: 20px;
+}
+
+select {
+	font-family: 'Varela Round', sans-serif;
+	font-size: 18px; /* Increase font size */
+	padding: 10px 15px; /* Add padding for better click area */
+	border: 2px solid #ff4500; /* Add a red border */
+	border-radius: 8px; /* Round the edges */
+	background-color: #222; /* Dark background to match theme */
+	color: white; /* White text */
+	cursor: pointer;
+	outline: none; /* Remove default focus outline */
+	transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+select:hover {
+	box-shadow: 0 0 10px #ff4500, 0 0 20px #ff6347; /* Glow effect on hover */
+	transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+select:focus {
+	box-shadow: 0 0 12px #ff4500, 0 0 25px #ff6347; /* Glow effect when focused */
+}
+
+/* Main Title Styling */
+.main-title {
+	font-size: 48px; /* Larger font size */
+	color: #e15a24; /* Mars-like red color */
+	text-align: center;
+	animation: pulseAnimation 2s infinite;
+}
+
+/* Keyframes for pulse animation */
+@keyframes pulseAnimation {
+	0% {
+		text-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+	}
+	50% {
+		text-shadow: 0 0 20px rgba(255, 165, 0, 0.5);
+	}
+	100% {
+		text-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+	}
+}
+
+/* Styling for the timestamp information */
+.timestamp {
+	font-size: 14px; /* Smaller font size */
+	font-style: italic; /* Italicize the font */
+	position: absolute;
+	bottom: 10px; /* Position at the bottom of the page */
+	width: 100%; /* Ensure it spans the width of the page */
+	text-align: center; /* Center-align the text */
+	color: #fff; /* Optional: Change color if needed */
+}
+
+.container {
+	position: relative;
+	min-height: 100vh; /* Ensure it takes at least the full height of the viewport */
+}
+
+.button-glow {
+	float: right; /* Move the button to the right */
+	margin-top: 10px; /* Add some spacing above */
+	padding: 10px 20px; /* Adjust padding for a better size */
+	font-size: 16px; /* Adjust font size */
+	font-family: 'Varela Round', sans-serif;
+	font-size: 18px; /* Increased font size */
+	font-weight: bold;
+	padding: 12px 24px; /* Adjust padding for larger text */
+	color: #fff;
+	background: none;
+	border: 2px solid #ff6347; /* Matching the title's theme */
+	border-radius: 5px;
+	cursor: pointer;
+	transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Smooth transitions */
+	box-shadow: 0 0 15px rgba(255, 77, 77, 0.75);
+}
+
+.button-glow:hover {
+	background: #ff6347; /* Bright red glow effect */
+	color: #fff;
+	box-shadow: 0 0 20px #ff6347; /* Glow effect on hover */
+	transform: scale(1.1); /* Slight increase in size */
+}
+
+.button-glow:active {
+	background-color: #cc0000; /* Even darker red on click */
+	box-shadow: 0 0 15px rgba(255, 77, 77, 0.75); /* Slightly reduced glow on click */
+}
+
+#notification-box {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 60%; /* Adjust width as needed */
+	max-height: 70%; /* Limit the height */
+	background-color: rgba(30, 30, 30, 0.95); /* Match the theme */
+	color: #fff;
+	font-family: 'Varela Round', sans-serif; /* Same font as title and button */
+	box-shadow: 0 0 15px rgba(255, 69, 0, 0.8); /* Glowing effect */
+	border-radius: 10px;
+	padding: 20px;
+	overflow: hidden;
+	z-index: 1000; /* Ensure it stays on top */
+	display: none; /* Hidden by default */
+}
+
+.notification-content {
+	display: flex;
+	flex-direction: column;
+	max-height: 100%;
+	overflow: hidden; /* Prevent content from overflowing */
+}
+
+.notification-content p {
+	margin: 0;
+	padding: 10px;
+	font-size: 16px;
+	line-height: 1.5;
+	overflow-y: auto; /* Scrollable when content exceeds the box height */
+	scrollbar-width: thin; /* For modern browsers */
+	scrollbar-color: rgba(255, 69, 0, 0.8) rgba(30, 30, 30, 0.95);
+}
+
+.notification-content p::-webkit-scrollbar {
+	width: 8px;
+}
+
+.notification-content p::-webkit-scrollbar-thumb {
+	background: rgba(255, 69, 0, 0.8);
+	border-radius: 10px;
+}
+
+.notification-content p::-webkit-scrollbar-track {
+	background: rgba(30, 30, 30, 0.95);
+}
+
+.close-btn {
+	align-self: flex-end;
+	font-size: 20px;
+	color: rgba(255, 69, 0, 0.8); /* Match the theme */
+	cursor: pointer;
+	margin-bottom: 10px;
+}
+
+.close-btn:hover {
+	color: rgba(255, 100, 50, 1);
+}
+
+#progress-bar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 5px;
+	background-color: rgba(30, 30, 30, 0.9); /* Match the theme */
+	z-index: 1001; /* Ensure it stays above other elements */
+}
+
+#progress-bar .progress {
+	width: 0;
+	height: 100%;
+	background-color: #ff4500; /* Match the glowing red theme of the title and button */
+	animation: progressAnimation 2s linear infinite;
+}
+
+@keyframes progressAnimation {
+	0% {
+		width: 0%;
+	}
+	50% {
+		width: 50%;
+	}
+	100% {
+		width: 100%;
+	}
+}
+
+/* Spinner styles */
+#spinner {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 1000; /* Ensure it appears above all other content */
+}
+
+.loader {
+	border: 8px solid rgba(255, 255, 255, 0.3); /* Light border */
+	border-top: 8px solid #ff4500; /* Glowing red border */
+	border-radius: 50%;
+	width: 80px;
+	height: 80px;
+	animation: spin 1s linear infinite;
+}
+
+/* Keyframes for spinner rotation */
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+/* General subtitle styling */
+.role-title {
+	font-family: 'Varela Round', sans-serif;
+	font-size: 20px; /* Larger font size */
+	font-weight: bold;
+	margin-bottom: 10px; /* Add space below subtitle */
+	display: inline-block;
+	padding: 5px 10px; /* Padding for background effect */
+	border-radius: 5px; /* Slightly rounded edges */
+	text-transform: uppercase; /* Make text uppercase */
+}
+
+/* Style for 'User' role */
+.user-role {
+	color: #ff6347; /* Bright orange text */
+	background-color: rgba(
+		255,
+		99,
+		71,
+		0.1
+	); /* Light background matching the theme */
+	border: 2px solid #ff6347; /* Border matching text color */
+	box-shadow: 0 0 5px rgba(255, 99, 71, 0.5); /* Subtle glowing effect */
+}
+
+/* Style for 'Assistant' role */
+.assistant-role {
+	color: #1e90ff; /* Bright blue text */
+	background-color: rgba(30, 144, 255, 0.1); /* Light blue background */
+	border: 2px solid #1e90ff; /* Border matching text color */
+	box-shadow: 0 0 5px rgba(30, 144, 255, 0.5); /* Subtle glowing effect */
+}
+
+/* Hover effect for both roles */
+.role-title:hover {
+	transform: scale(1.05); /* Slight enlargement */
+	transition: all 0.2s ease-in-out;
+}
+
+/* Search Bar Styling */
+.search-section {
+	margin: 20px 0;
+	text-align: center;
+}
+
+#search-bar {
+	width: 80%;
+	padding: 10px;
+	font-size: 18px; /* Match font size with buttons and title */
+	font-family: 'Varela Round', sans-serif; /* Apply consistent font */
+	border: 2px solid #ff6347; /* Mars-like red border */
+	border-radius: 5px;
+	background-color: #1e1e1e;
+	color: #fff;
+	outline: none;
+	transition: border-color 0.3s ease-in-out;
+}
+
+#search-bar:focus {
+	border-color: #ff4500; /* Bright Mars red on focus */
+}
+
+/* Placeholder Styling */
+#search-bar::placeholder {
+	font-family: 'Varela Round', sans-serif; /* Match font */
+	font-size: 18px; /* Match text size */
+	color: #bbb; /* Light gray color */
+	text-align: left;
+}
