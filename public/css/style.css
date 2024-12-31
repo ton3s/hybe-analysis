@@ -87,20 +87,20 @@ select:focus {
 	}
 }
 
-/* Styling for the timestamp information */
-.timestamp {
-	font-size: 14px; /* Smaller font size */
-	font-style: italic; /* Italicize the font */
-	position: absolute;
-	bottom: 10px; /* Position at the bottom of the page */
-	width: 100%; /* Ensure it spans the width of the page */
-	text-align: center; /* Center-align the text */
-	color: #fff; /* Optional: Change color if needed */
-}
-
 .container {
 	position: relative;
-	min-height: 100vh; /* Ensure it takes at least the full height of the viewport */
+	min-height: calc(100vh - 100px); /* Ensure full height minus footer */
+	padding-bottom: 80px; /* Add space for the timestamp */
+}
+
+.timestamp {
+	font-size: 14px;
+	font-style: italic;
+	position: relative;
+	bottom: 0; /* No fixed position to avoid overlapping */
+	text-align: center;
+	color: #fff;
+	padding-top: 20px; /* Add space above the timestamp */
 }
 
 .button-glow {
