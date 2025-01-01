@@ -23,15 +23,11 @@
 			placeholder="Search trials..." 
 			oninput="filterTrials()" />
 		</div>
-        <div class="timestamp">
-			<p>Created At: {{data.created_at}}</p>
-			<p>Updated At: {{data.updated_at}}</p>
-		</div>
         {{#each data.content}}
             <div class="content-section">
                 <h3 class="role-title {{#if (eq this.role 'user')}}user-role{{else}}assistant-role{{/if}}">
-					{{#if (eq this.role "user")}}Dr. Volkov{{/if}}
-					{{#if (eq this.role "assistant")}}Dr. Hans{{/if}}
+					{{#if (eq this.role "user")}}User{{/if}}
+					{{#if (eq this.role "assistant")}}Assistant{{/if}}
 				</h3>
                 <pre>{{this.content}}</pre>
 				<button class="button-glow" onclick="explainInLaymansTerms({{@index}})">Explain This</button>
@@ -47,6 +43,10 @@
 				<span class="close-btn" onclick="closeNotification()">&times;</span>
 				<p id="chat-response"></p>
 			</div>
+		</div>
+		<div class="timestamp">
+			<p>Created At: {{data.created_at}}</p>
+			<p>Updated At: {{data.updated_at}}</p>
 		</div>
 		<script>
 			function explainInLaymansTerms(index) {
