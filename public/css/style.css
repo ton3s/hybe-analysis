@@ -1,11 +1,11 @@
 .main-title,
 .button-glow {
-	font-family: 'Varela Round', sans-serif; /* Apply Varela Round font */
+	font-family: 'Futura', sans-serif; /* Apply Varela Round font */
 }
 
 /* Basic body styling */
 body {
-	font-family: 'Varela Round', sans-serif;
+	font-family: 'Futura', sans-serif;
 	background-color: #121212; /* Dark background */
 	color: #e0e0e0; /* Light text */
 	margin: 20px;
@@ -45,7 +45,7 @@ form {
 }
 
 select {
-	font-family: 'Varela Round', sans-serif;
+	font-family: 'Futura', sans-serif;
 	font-size: 18px; /* Increase font size */
 	padding: 10px 15px; /* Add padding for better click area */
 	border: 2px solid #ff4500; /* Add a red border */
@@ -69,8 +69,11 @@ select:focus {
 /* Main Title Styling */
 .main-title {
 	font-size: 48px; /* Larger font size */
-	color: #e15a24; /* Mars-like red color */
+	font-family: 'Futura', 'Arial', sans-serif; /* Use Futura or a close sans-serif */
+	font-weight: bold; /* Ensure bold styling */
+	color: #ffffff; /* Pure white color */
 	text-align: center;
+	letter-spacing: 2px; /* Add letter spacing to mimic logo style */
 	animation: pulseAnimation 2s infinite;
 }
 
@@ -108,7 +111,7 @@ select:focus {
 	margin-top: 10px; /* Add some spacing above */
 	padding: 10px 20px; /* Adjust padding for a better size */
 	font-size: 16px; /* Adjust font size */
-	font-family: 'Varela Round', sans-serif;
+	font-family: 'Futura', sans-serif;
 	font-size: 18px; /* Increased font size */
 	font-weight: bold;
 	padding: 12px 24px; /* Adjust padding for larger text */
@@ -142,7 +145,7 @@ select:focus {
 	max-height: 70%; /* Limit the height */
 	background-color: rgba(30, 30, 30, 0.95); /* Match the theme */
 	color: #fff;
-	font-family: 'Varela Round', sans-serif; /* Same font as title and button */
+	font-family: 'Futura', sans-serif; /* Same font as title and button */
 	box-shadow: 0 0 15px rgba(255, 69, 0, 0.8); /* Glowing effect */
 	border-radius: 10px;
 	padding: 20px;
@@ -257,7 +260,7 @@ select:focus {
 
 /* General subtitle styling */
 .role-title {
-	font-family: 'Varela Round', sans-serif;
+	font-family: 'Futura', sans-serif;
 	font-size: 20px; /* Larger font size */
 	font-weight: bold;
 	margin-bottom: 10px; /* Add space below subtitle */
@@ -304,7 +307,7 @@ select:focus {
 	width: 80%;
 	padding: 10px;
 	font-size: 18px; /* Match font size with buttons and title */
-	font-family: 'Varela Round', sans-serif; /* Apply consistent font */
+	font-family: 'Futura', sans-serif; /* Apply consistent font */
 	border: 2px solid #ff6347; /* Mars-like red border */
 	border-radius: 5px;
 	background-color: #1e1e1e;
@@ -319,7 +322,7 @@ select:focus {
 
 /* Placeholder Styling */
 #search-bar::placeholder {
-	font-family: 'Varela Round', sans-serif; /* Match font */
+	font-family: 'Futura', sans-serif; /* Match font */
 	font-size: 18px; /* Match text size */
 	color: #bbb; /* Light gray color */
 	text-align: left;
