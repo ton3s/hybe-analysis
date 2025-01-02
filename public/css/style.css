@@ -110,9 +110,8 @@ select:focus {
 	float: right; /* Move the button to the right */
 	margin-top: 10px; /* Add some spacing above */
 	padding: 10px 20px; /* Adjust padding for a better size */
-	font-size: 16px; /* Adjust font size */
 	font-family: 'Futura', sans-serif;
-	font-size: 18px; /* Increased font size */
+	font-size: 16px; /* Increased font size */
 	font-weight: bold;
 	padding: 12px 24px; /* Adjust padding for larger text */
 	color: #fff;
